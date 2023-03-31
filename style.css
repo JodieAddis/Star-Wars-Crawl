@@ -1,0 +1,49 @@
+@font-face {
+  font-family: Quicksand;
+  src: url(/assets/font/Quicksand/Quicksand-VariableFont_wght.ttf);
+}
+body {
+  background-image: url(./assets/img/desktop-1280x1024.jpg);
+  background-position: cover;
+}
+
+.gradient {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  top: -25px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: 3;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 400px 1fr;
+}
+.container .crawl {
+  grid-column: 2;
+  grid-row: 2;
+  transform-origin: 100% 20%;
+  animation: crawl 30s linear;
+}
+@keyframes crawl {
+  0% {
+    top: 8rem;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
+  100% {
+    top: 2rem;
+    transform: rotateX(20deg) translateZ(0);
+  }
+}
+.container .crawl .content {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  max-width: 400px;
+}
+.container .crawl .content p {
+  color: yellow;
+  font-family: Quicksand;
+  text-align: justify;
+  font-size: 20px;
+}/*# sourceMappingURL=style.css.map */

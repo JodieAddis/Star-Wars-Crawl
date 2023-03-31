@@ -1,0 +1,56 @@
+@font-face {
+    font-family: Quicksand;
+    src: url(/assets/font/Quicksand/Quicksand-VariableFont_wght.ttf);
+}
+
+$font: Quicksand;
+$color:yellow; 
+@mixin content{
+    color:$color;
+    font-family: $font;
+    text-align: justify;
+}
+
+body{
+    background-image: url(./assets/img/desktop-1280x1024.jpg);
+    background-position: cover;
+}
+
+.gradient{
+    position: relative;//le dégradé doit s'appliquer uniquement sur le background, pas de position:absolut ici//
+    width: 100%;
+    min-height: 60vh;//taille de mini 60% du bloc//
+    top: -25px;
+    background-image: linear-gradient(0deg, transparent, black 75%);//Application d'un gradient de noir//
+    z-index: 3;//Mis au tout premier plan//
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 400px 1fr ;
+    .crawl{
+        grid-column: 2;
+        grid-row: 2;
+        transform-origin: 100% 20%;
+        animation: crawl 30s linear;
+        @keyframes crawl {
+            0% {
+            top: 8rem;
+            transform: rotateX(25deg) translateZ(-2500px);
+            }
+            100% { 
+            top: 2rem;
+            transform: rotateX(20deg)  translateZ(0);
+            }
+        }
+            .content{
+                grid-column: 2/3;
+                grid-row: 1/2;
+                max-width: 400px;
+                p{
+                    @include content();
+                    font-size: 20px;
+                }
+            }
+        }
+    }
